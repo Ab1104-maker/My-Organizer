@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#00BFFF">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Organizer</title>
@@ -56,6 +58,15 @@
     </div>
 
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("App is ready!"))
+      .catch(error => console.log("Service Worker Error:", error));
+  });
+}
+</script>
     <script src="script.js"></script>
 
 </body>
