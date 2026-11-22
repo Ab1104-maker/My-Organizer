@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Organizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>My Organizer</h1>
+
+    <h3>Here u can Organize your stuff add New Pages, Text, Images, Tables and drag them anywhere on your page (To drag hold shift and then drag) Thanks.</h3>
+
+    <div class="features">
+        <button class="feature-card" data-tooltip="Add Text" onclick="addText()">
+            <span class="feature-icon">T</span>
+        </button>
+
+        <button class="feature-card" data-tooltip="Add Image" onclick="document.getElementById('imageInput').click()">
+            <span class="feature-icon">📷︎</span>
+        </button>
+
+        <button class="feature-card" data-tooltip="Add Table" onclick="addTable()">
+            <span class="feature-icon">⊞</span>
+        </button>
+
+        <button class="feature-card" data-tooltip="Delete Selected" onclick="deleteSelected()">
+            <span class="feature-icon">⌫</span>
+        </button>
+
+        <button class="feature-card" data-tooltip="Download Page" onclick="downloadDesign()">
+            <span class="feature-icon">⬇</span>
+        </button>
+
+        <button class="feature-card" data-tooltip="New Page" onclick="addPage()">
+            <span class="feature-icon">🗎</span>
+        </button>
+
+        <button class="feature-card" data-tooltip="Rename Page" onclick="renamePage()">
+            <span class="feature-icon">✎</span>
+        </button>
+
+        <button class="feature-card" data-tooltip="Delete Page" onclick="deletePage()">
+            <span class="feature-icon">×</span>
+        </button>
+    </div>
+
+    <input type="file" id="imageInput" accept="image/*" hidden onchange="addImage(event)">
+
+    <div id="pageTabs"></div>
+
+    <div id="canvas">
+        <p id="placeholder">Your page is empty. Add something!</p>
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

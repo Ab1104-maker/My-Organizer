@@ -1,0 +1,213 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: black;
+    color: black;
+    margin: 0;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 15px 18px 6px;
+    color: white;
+}
+
+h3 {
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.4;
+    margin: 6px 18px 12px;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 18px;
+    padding: 6px;
+}
+
+.feature-card {
+    position: relative;
+    background: lavender;
+    color: deepskyblue;
+    border: 1px deepskyblue;
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.feature-card:hover {
+    background: whitesmoke;
+    border-color: deepskyblue;
+}
+
+.feature-icon {
+    font-size: 23px;
+    font-weight: bold;
+    color: deepskyblue;
+}
+
+.feature-card::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 9px);
+    transform: translateX(-50%);
+    background: black;
+    color: white;
+    padding: 6px 9px;
+    border-radius: 5px;
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.15s;
+}
+
+.feature-card:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+#pageTabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 10px;
+}
+
+.page-tab {
+    background: white;
+    color: black;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.page-tab:hover {
+    background: whitesmoke;
+    border-color: deepskyblue;
+}
+
+.page-tab.active {
+    background: deepskyblue;
+    color: white;
+    border-color: deepskyblue;
+}
+
+#canvas {
+    width: 800px;
+    height: 400px;
+    max-width: calc(100% - 30px);
+    background: white;
+    margin: 15px auto;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid deepskyblue;
+    border-radius: 5px;
+}
+
+#placeholder {
+    color: gray;
+    margin-top: 220px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.element {
+    position: absolute;
+}
+
+.text-element {
+    min-width: 50px;
+    min-height: 25px;
+    max-width: 350px;
+    padding: 5px;
+    font-size: 20px;
+    outline: none;
+    border: 1px dashed transparent;
+    text-align: left;
+    color: black;
+    cursor: text;
+    user-select: text;
+    overflow-wrap: break-word;
+}
+
+.text-element:focus {
+    border: 1px dashed deepskyblue;
+}
+
+.text-element:empty::before {
+    content: attr(data-placeholder);
+    color: gray;
+    pointer-events: none;
+}
+
+.image-element {
+    width: 150px;
+    height: auto;
+    border: 1px dashed transparent;
+    cursor: move;
+}
+
+.table-element {
+    position: absolute;
+    border-collapse: collapse;
+    background: white;
+    color: black;
+    border: 3px solid black;
+}
+
+.table-element td {
+    border: 3px solid black;
+    padding: 8px;
+    min-width: 65px;
+    min-height: 25px;
+    cursor: text;
+    user-select: text;
+}
+
+.table-element td:focus {
+    outline: 2px solid deepskyblue;
+}
+
+.element.selected {
+    outline: 2px solid deepskyblue;
+}
+
+@media (max-width: 600px) {
+    .features {
+        gap: 7px;
+        margin: 8px;
+    }
+
+    .feature-card {
+        width: 38px;
+        height: 38px;
+    }
+
+    .feature-icon {
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+}
